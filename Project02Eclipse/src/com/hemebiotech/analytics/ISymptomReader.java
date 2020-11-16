@@ -1,5 +1,4 @@
 package com.hemebiotech.analytics;
-
 import java.util.List;
 
 /**
@@ -8,13 +7,24 @@ import java.util.List;
  * that may contain many duplications
  * 
  * The implementation does not need to order the list
+ * @param <V>
+ * @param <K>
+ * 
  * 
  */
-public interface ISymptomReader {
+public interface ISymptomReader<V> {
+
 	/**
 	 * If no data is available, return an empty List
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
-	List<String> GetSymptoms ();
+
+
+
+	List<String> getSymptoms();	
+	
+
+	
+	
 }
