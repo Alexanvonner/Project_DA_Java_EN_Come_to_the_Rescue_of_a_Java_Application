@@ -6,11 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Simple brute force implementation
- *
- */
-public class ReadSymptomDataFromFile implements ISymptomReader {
+
+
+public class ReadSymptomDataFromFile implements ISymptomReader<Object> {
 
 	private String filepath;
 	
@@ -22,17 +20,22 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		this.filepath = filepath;
 	}
 	
+	
+	
+
+
 	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
+	public List<String> getSymptoms() 
+	{
+		ArrayList<String> tableau = new ArrayList<String>();
 		
 		if (filepath != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader("C://Users//dell//git//Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application//Project02Eclipse//symptoms.txt"));
+				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
 				
 				while (line != null) {
-					result.add(line);
+					tableau.add(line);
 					line = reader.readLine();
 				}
 				reader.close();
@@ -41,7 +44,12 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			}
 		}
 		
-		return result;
+		return tableau;
 	}
 
+
+
+
+
+	
 }
